@@ -167,7 +167,7 @@ class ParallelTransferrer:
                 while part <= last_part:
                     result = await conn.sender.send(request)
                     request.offset += part_size
-                    if part == first_part:
+                    if part == part:
                         yield result.bytes[first_part_cut:]
                     elif part == last_part:
                         yield result.bytes[:last_part_cut]
